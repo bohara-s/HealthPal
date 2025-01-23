@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Check Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7fc;
+      margin: 0;
+      padding: 0;
+    }
+
+    .form-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .form-wrapper {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .label {
+      font-size: 16px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .question-section {
+      display: none;
+      margin-bottom: 20px;
+    }
+
+    .question {
+      margin-bottom: 15px;
+    }
+
+    .question p {
+      font-weight: bold;
+    }
+
+    .question label {
+      display: block;
+      margin-top: 5px;
+    }
+
+    .duration-section {
+      margin-top: 20px;
+    }
+
+    .duration-input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    .message-textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      margin-top: 20px;
+      min-height: 100px;
+    }
+
+    .submit-button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+      font-size: 16px;
+    }
+
+    .submit-button:hover {
+      background-color: #0056b3;
+    }
+
+    .show {
+      display: block;
+    }
+    .navbar {
+      background-color: #00796b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+    .navbar .logo {
+      display: flex;
+      align-items: center;
+    }
+    .navbar .logo img {
+      height: 50px;
+      margin-right: 10px;
+    }
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar ul li {
+      margin: 0 10px;
+    }
+    .navbar ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+    .navbar ul li a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="..." alt="HealthPal Logo">
+      <h1 style="color: white; font-size: 20px;">HealthPal</h1>
+    </div>
+    <ul>
+      <li><a href="http://127.0.0.1:8000">Home</a></li>
+      <li><a href="http://127.0.0.1:8000/about/">About</a></li>
+      <li><a href="http://127.0.0.1:8000/contact/">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="form-container">
+    <div class="form-wrapper">
+      <label for="section" class="label">Select a section:</label>
+      <select id="section" class="select">
+        <option value="">Select a section</option>
+        <option value="1">General Health Check</option>
+        <option value="2">Respiratory Symptoms</option>
+        <option value="3">Pain and Discomfort</option>
+        <option value="4">Other Symptoms</option>
+      </select>
+
+      <div class="question-section" id="questionSection1">
+        <div class="question">
+          <p>How are you feeling overall today?</p>
+          <label><input type="radio" name="question1" /> Good</label>
+          <label><input type="radio" name="question1" /> Average</label>
+          <label><input type="radio" name="question1" /> Poor</label>
+        </div>
+        <div class="question">
+          <p>Have you noticed any fever?</p>
+          <label><input type="radio" name="question2" /> Yes</label>
+          <label><input type="radio" name="question2" /> No</label>
+        </div>
+      </div>
+
+      <div class="question-section" id="questionSection2">
+        <div class="question">
+          <p>Do you have shortness of breath or difficulty breathing?</p>
+          <label><input type="radio" name="question1" /> Yes</label>
+          <label><input type="radio" name="question1" /> No</label>
+        </div>
+      </div>
+
+      <div class="duration-section">
+        <p>Duration of Symptoms:</p>
+        <input type="text" placeholder="Enter duration" class="duration-input">
+      </div>
+
+      <textarea placeholder="Type message" class="message-textarea"></textarea>
+
+      <button class="submit-button">Submit</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("section").addEventListener("change", function () {
+      const selectedSection = this.value;
+      const sections = document.querySelectorAll('.question-section');
+      sections.forEach(section => section.classList.remove('show'));
+
+      if (selectedSection) {
+        document.getElementById(`questionSection${selectedSection}`).classList.add('show');
+      }
+    });
+  </script>
+</body>
+</html>

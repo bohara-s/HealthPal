@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealthPal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .navbar {
+      background-color: #00796b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+    .navbar .logo {
+      display: flex;
+      align-items: center;
+    }
+    .navbar .logo img {
+      height: 50px;
+      margin-right: 10px;
+    }
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar ul li {
+      margin: 0 10px;
+    }
+    .navbar ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+    .navbar ul li a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="..." alt="HealthPal Logo">
+        <h1 style="color: white; font-size: 20px;">HealthPal</h1>
+      </div>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="http://127.0.0.1:8000/about/">About</a></li>
+        <li><a href="http://127.0.0.1:8000/contact/">Contact</a></li>
+        <li><a href="http://127.0.0.1:8000/login/">Login</a></li>
+        <li><a href="#signup">Sign Up</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="home" style="padding: 20px; text-align: center;">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Card Component -->
+            <div class="card hover:shadow-lg hover:shadow-rose-500 transition-shadow">
+                <div class="card-content p-6 flex flex-col items-center">
+                    <div class="icon h-12 w-12 text-rose-500 mb-4">
+                        <Heart />
+                    </div>
+                    <h2 class="title text-xl font-semibold mb-2">Symptoms Checker</h2>
+                    <p class="description text-slate-600 text-center text-base mb-4">
+                        Check your symptoms and get instant health guidance
+                    </p>
+                    <NavLink to="/symptoms-checker">
+                       <a href="http://127.0.0.1:8000/symptom/"> <button class="btn bg-rose-500 hover:bg-rose-600 text-white py-2 px-4 rounded w-full">
+                            Check Now
+                        </button></a>
+                    </NavLink>
+                </div>
+            </div>
+        
+            <div class="card hover:shadow-lg hover:shadow-blue-500 transition-shadow">
+                <div class="card-content p-6 flex flex-col items-center">
+                    <div class="icon h-12 w-12 text-blue-500 mb-4">
+                        <Stethoscope />
+                    </div>
+                    <h2 class="title text-xl font-semibold mb-2">First Aid</h2>
+                    <p class="description text-slate-600 text-center text-base mb-4">
+                        Learn essential first aid techniques and procedures
+                    </p>
+                    <NavLink to="/first-aid">
+                      <a href="http://127.0.0.1:8000/first_aid/">  <button class="btn bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded w-full">
+                            Learn More
+                        </button></a>
+                    </NavLink>
+                </div>
+            </div>
+        
+            <div class="card hover:shadow-lg hover:shadow-amber-400 transition-shadow lg:col-span-1 sm:col-span-2">
+                <div class="card-content p-6 flex flex-col items-center">
+                    <div class="icon h-12 w-12 text-amber-500 mb-4">
+                        <AlertCircle />
+                    </div>
+                    <h2 class="title text-xl font-semibold mb-2">Emergency</h2>
+                    <p class="description text-slate-600 text-center text-base mb-4">
+                        Quick access to emergency services and contacts
+                    </p>
+                    <NavLink to="/emergency">
+                        <button class="btn bg-amber-500 hover:bg-amber-600 text-white py-2 px-4 rounded w-full">
+                            View Services
+                        </button>
+                    </NavLink>
+                </div>
+            </div>
+        </div>
+        
+        <style>
+        .card {
+            border-radius: 0.5rem;
+            border: 1px solid #e5e7eb;
+            background-color: #ffffff;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-content {
+            text-align: center;
+        }
+        
+        .icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+        
+        .description {
+            color: #4b5563;
+        }
+        
+        .btn {
+            font-size: 1rem;
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        </style>
+        
+    </section>
+  </main>
+</body>
+</html>
